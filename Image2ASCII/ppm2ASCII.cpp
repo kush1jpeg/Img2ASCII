@@ -67,10 +67,21 @@ for(int i = 0 ; i<img.size() ; i+=3)
   store = (img[i] + img[i + 1] + img[i + 2]) / 3; 
 
         if (store < 50) outFile << '#';
-        else if (store < 100)   outFile << '!';
-        else if (store < 150) outFile << '&';
-        else if (store < 200) outFile << '*';
-        else outFile << '.';
+        else if (store < 17)   outFile << '@';
+        else if (store < 34) outFile << '#';                    //@ # 8 % & $ 5 0 ? + = - : . " "  
+        else if (store < 51) outFile << '8';
+        else if (store < 68) outFile << '%';
+        else if (store < 85) outFile << '&';
+        else if (store < 102) outFile << '$';
+        else if (store < 119) outFile << '5';
+        else if (store < 136) outFile << '0';
+        else if (store < 153) outFile << '?';
+        else if (store < 170) outFile << '+';
+        else if (store < 187) outFile << '=';
+        else if (store < 204) outFile << '-';
+        else if (store < 221) outFile << ':';
+        else if (store < 238) outFile << '.';
+        else if (store < 255) outFile << " ";
         row ++ ;
 
         if(row % width == 0){    //logic didnt cross my mind for new line but fuck gpt

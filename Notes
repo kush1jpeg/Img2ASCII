@@ -1,0 +1,62 @@
+ifstream - to open the file  using >> to read //works if the file is located in the same folder otherwise you need the entire path
+ofstream  - to create a file using << to append
+
+ifstream myFile(....)   //refer the file as myFile after opening
+
+myFile.is_open //to check if the file is open
+
+reading from myFile- 
+  std::string str ;         //myFile>>str reads one string 
+  while(myFile >> str){    //when reading as strings it does not read spaces if want spaces then read ch
+   cout <<str <<endl
+  }
+   
+   char ch ;
+   while(myFile.good()) //false on reaching the end of the file or we can use myfile.eof() → True if end of file is reached.
+   {
+  myFile.get( ch ) ; 
+  std::cout<< c ;
+   }
+
+  #iclude <string>                 //prints one line at a time along with the spaces
+  std::string line ;
+  while(myFile.good()){
+    getline(myFile , line) ;
+    std::cout << line ;
+  }
+                                /// To read the entire file
+ string content((istreambuf_iterator< char >( myFile)) , {} )
+ myFile.close() ;
+                       
+                                                 --Image Processing--    
+Portable Pixel Map(PPM)
+The PPM format is a lowest common denominator color image file format.
+
+It should be noted that this format is egregiously inefficient. It is highly redundant, while containing
+a lot of information that the human eye can't even discern. Furthermore, the format allows very little 
+information about the image besides basic color, which means you may have to couple a file in this 
+format with other independent information to get any decent use out of it. However, it is very easy to 
+write and analyze programs to process this format, and that is the point.                       
+
+P3    //to specify its p3 format 
+234 234  //height and width
+255    //max rgb value
+# A comment                 basically we can now loop over the width and height to place shit @imageGenTest.cpp
+1023
+
+
+c_str() -
+  Many C++ functions (especially from the C standard library) require C-style strings (char* or const char*).
+  std::string is a modern wrapper around character arrays but isn't directly compatible with C functions.
+  c_str() provides a way to get a pointer to the internal character array of std::string.
+
+inFile.peek() == '#'
+    peek() checks the next character in the file without extracting it.
+    If the next character is #, that means the line is a comment.
+    getline(inFile, line);
+
+    Reads the entire line containing the comment.
+    if (line == "#Compressed by jpeg-recompress") continue;
+
+    If the comment matches "#Compressed by jpeg-recompress", it simply skips that line.
+    The continue; statement makes it move to the next iteration of the loop.
